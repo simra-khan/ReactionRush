@@ -3,6 +3,7 @@ from pygame import *
 from objects import *
 from logic import *
 from mincy import *
+from simra import *
 
 init()
 
@@ -34,6 +35,10 @@ fire_y = 600
 # Compound output
 output_compound = None
 
+#inventory
+inventory_list = []
+
+state = 2
 
 while run: 
     #rendering
@@ -45,6 +50,8 @@ while run:
         draw.rect(screen, "turquoise", e.sprite)
     if(currently_dragging_object != None): 
         draw.rect(screen, "turquoise", currently_dragging_object.sprite)
+    # if(output_compound != None):
+    #     draw.rect(screen, output_compound.sprite, Rect(100, 100, 40, 40))
     screen.blit(fire, (fire_x, fire_y))
     
     # events
@@ -58,14 +65,17 @@ while run:
                         dragging = True
                 # Mix elements
                 if fire.get_rect(topleft=(fire_x, fire_y)).collidepoint(e.pos):
+                        print(mix(elements_in_cauldron).name)
                         if(mix(elements_in_cauldron) != 0): 
                             output_compound = mix(elements_in_cauldron)
                             print("ran")
-                        print(output_compound)
-                        # for x in elements_in_cauldron:
-                        #     print(x.name)
                         elements_in_cauldron = []
-        
+
+                # Move cauldron to inventory 
+                if output_compound != None and output_compound.collidepoint(e.pos):
+                    inventory_list.append(output_compound)
+                    output_compound = None
+                        
         if e.type == MOUSEBUTTONUP:
             if e.button == 1:
                 # Drag into cauldron
