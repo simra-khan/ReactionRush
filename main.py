@@ -1,3 +1,4 @@
+import random
 from pygame import *
 from objects import *
 
@@ -12,10 +13,16 @@ my_font = font.SysFont('Comic Sans MS', 18)
 
 run = True
 
+elements = []
+for i in range(2):
+    x = random.randint(100, 800)
+    y = random.randint(100, 800)
+    elements.append(Rect(x, y, 50, 50))
+
 while run: 
     screen.fill((255, 255, 255))
-    draw.rect(screen, "#000000", Rect(100, height / 2, 50, 50))
-    draw.rect(screen, "#000000", Rect(width - 100, height / 2, 50, 50))
+    for element in elements:
+        draw.rect(screen, "turquoise2", element)
     for e in event.get():
         if e.type == QUIT:
             run = False
