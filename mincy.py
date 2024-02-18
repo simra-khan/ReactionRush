@@ -60,5 +60,6 @@ def mincy():
         "chlorine": 1,
         "oxygen": 1
     }
-    compounds = [Compound("water", water), Compound("methane", methane), Compound("propane", propane), Compound("glucose", glucose), Compound("acetone", acetone), Compound("alcohol", alcohol), Compound("vinegar", vinegar), Compound("caffeine", caffeine), Compound("ammonia", ammonia), Compound("glass", glass), Compound("toothpaste", toothpaste), Compound("table_salt", table_salt), Compound("bleach", bleach)]
+
+    compounds = [Compound("./images/water.png", "water", water, 0, 0)] #, Compound("methane", methane, "orange"), Compound("propane", propane, "yellow"), Compound("glucose", glucose, "lime"), Compound("acetone", acetone, "green"), Compound("alcohol", alcohol, "aqua"), Compound("vinegar", vinegar, "blue"), Compound("caffeine", caffeine, "purple"), Compound("ammonia", ammonia, "magenta"), Compound("glass", glass, "pink"), Compound("toothpaste", toothpaste, "brown"), Compound("table_salt", table_salt, "grey"), Compound("bleach", bleach, "black")
     return compounds
