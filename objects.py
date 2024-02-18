@@ -1,6 +1,5 @@
 from pygame import *
 
-
 class Element: 
     def __init__(self, name, img, x, y):
         self.name = name
@@ -25,7 +24,16 @@ class Fire:
         self.img = img
         self.x = x 
         self.y = y 
-        self.sprite = transform.scale(image.load(img), (200, 200))
+        self.sprite = transform.scale(image.load(img), (100, 100))
+        self.mask = mask.from_surface(self.sprite)
+        self.rect = self.mask.get_rect()
+
+class Trash:
+    def __init__(self, img, x, y):
+        self.img = img
+        self.x = x 
+        self.y = y 
+        self.sprite = transform.scale(image.load(img), (100, 100))
         self.mask = mask.from_surface(self.sprite)
         self.rect = self.mask.get_rect()
 
@@ -44,19 +52,35 @@ class Compound:
         self.combos = combos
         self.x = x
         self.y = y
-        self.sprite = transform.scale(image.load(img), (125, 125))
+        self.sprite = transform.scale(image.load(img), (50, 50))
         self.mask = mask.from_surface(self.sprite)
         self.rect = self.mask.get_rect()
 
+class Slot:
+    def __init__(self, img, compound, x, y):
+        self.img = img
+        if (compound != None): 
+            compound.sprite = transform.scale(image.load(compound.img), (50, 50))
+        self.compound = compound
+        self.x = x
+        self.y = y
+        self.sprite = transform.scale(image.load(img), (50, 50))
+        self.mask = mask.from_surface(self.sprite)
+        self.rect = self.mask.get_rect()
 
-
-
+    def updateCompound(self, compound):
+        if (compound != None): 
+            compound.sprite = transform.scale(image.load(compound.img), (35, 35))
+        self.compound = compound
 
 class Customer:
-    def __init__(self, sprite, order):
-        self.sprite = sprite
-        self.img = transform.scale(image.load(sprite), (125, 125))
+    def __init__(self, img, order, x, y):
+        self.sprite = transform.scale(image.load(img), (150, 300))
         self.order = order
+        self.mask = mask.from_surface(self.sprite)
+        self.rect = self.mask.get_rect()
+        self.x = x
+        self.y = y
 
 # class Compound: # name and sprite
 #     def __init__(self, hydrogen, oxygen, carbon, nitrogen, silicon, fluorine, sodium, chlorine):

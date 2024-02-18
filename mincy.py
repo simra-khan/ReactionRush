@@ -30,8 +30,8 @@ def mincy():
         }
     vinegar = {
         "carbon": 2,
-        "hydrogen": 6,
-        "oxygen": 1
+        "hydrogen": 4,
+        "oxygen": 2
         }
     caffeine = {
         "carbon": 8,
@@ -61,5 +61,21 @@ def mincy():
         "oxygen": 1
     }
 
-    compounds = [Compound("./images/water.png", "water", water, 0, 0)] #, Compound("methane", methane, "orange"), Compound("propane", propane, "yellow"), Compound("glucose", glucose, "lime"), Compound("acetone", acetone, "green"), Compound("alcohol", alcohol, "aqua"), Compound("vinegar", vinegar, "blue"), Compound("caffeine", caffeine, "purple"), Compound("ammonia", ammonia, "magenta"), Compound("glass", glass, "pink"), Compound("toothpaste", toothpaste, "brown"), Compound("table_salt", table_salt, "grey"), Compound("bleach", bleach, "black")
+    output_x = 900
+    output_y = 450
+    compounds = [
+        Compound("./images/water.png", "water", water, output_x, output_y), 
+        Compound("./images/methane.png", "methane", methane, output_x, output_y), 
+        Compound("./images/propane.png", "propane", propane, output_x, output_y),
+        Compound("./images/glucose.png", "glucose", glucose, output_x, output_y),
+        Compound("./images/acetone.png", "acetone", acetone, output_x, output_y),
+        Compound("./images/alcohol.png", "alcohol", alcohol, output_x, output_y),
+        Compound("./images/vinegar.png", "vinegar", vinegar, output_x, output_y),
+        Compound("./images/caffeine.png", "caffeine", caffeine, output_x, output_y),
+        Compound("./images/ammonia.png", "ammonia", ammonia, output_x, output_y),
+        Compound("./images/glass.png", "glass", glass, output_x, output_y),
+        Compound("./images/toothpaste.png", "toothpaste", toothpaste, output_x, output_y),
+        Compound("./images/salt.png", "table_salt", table_salt, output_x, output_y),
+        Compound("./images/bleach.png", "bleach", bleach, output_x, output_y)
+        ]
     return compounds
