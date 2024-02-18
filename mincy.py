@@ -61,8 +61,8 @@ def mincy():
         "oxygen": 1
     }
 
-    output_x = 900
-    output_y = 450
+    output_x = 180
+    output_y = 510
     compounds = [
         Compound("./images/water.png", "water", water, output_x, output_y), 
         Compound("./images/methane.png", "methane", methane, output_x, output_y), 

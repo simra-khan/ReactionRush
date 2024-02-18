@@ -33,9 +33,20 @@ class Trash:
         self.img = img
         self.x = x 
         self.y = y 
-        self.sprite = transform.scale(image.load(img), (100, 100))
+        self.sprite = transform.scale(image.load(img), (50, 50))
         self.mask = mask.from_surface(self.sprite)
         self.rect = self.mask.get_rect()
+
+class Recipe:
+    def __init__(self, img, x, y, szx, szy):
+        self.img = img
+        self.x = x 
+        self.y = y 
+        self.sprite = transform.scale(image.load(img), (szx, szy))
+        self.mask = mask.from_surface(self.sprite)
+        self.rect = self.mask.get_rect()
+
+
 
 class Mouse:
     def __init__(self):
@@ -81,6 +92,14 @@ class Customer:
         self.rect = self.mask.get_rect()
         self.x = x
         self.y = y
+        self.timer = 45
+        self.count = 0
+    
+    def updateTimer(self):
+        self.count += 1
+        if self.count == 60:
+            self.count = 0
+            self.timer -= 1
 
 # class Compound: # name and sprite
 #     def __init__(self, hydrogen, oxygen, carbon, nitrogen, silicon, fluorine, sodium, chlorine):
